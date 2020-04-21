@@ -11,8 +11,7 @@ img_height = img.shape[0]
 img_width = img.shape[1]
 
 
-def rgb_to_gray(img):
-    # multiply rgb to gray matrix
+def rgb_to_gray(img):  # convert rgb to gray scale image
     return np.dot(img[..., :3], [0.2989, 0.5870, 0.1140])
 
 
@@ -22,6 +21,7 @@ gray_img = rgb_to_gray(img)
 def pca_compress(k):
     pca = PCA(n_components=k)
     p = pca.fit_transform(gray_img)
+    # transfer data back to its original space
     return pca.inverse_transform(p)
 
 
@@ -39,9 +39,8 @@ def add_image(fig, img, pos, k):
         plt.imshow(img, cmap=plt.get_cmap('gray'))
 
 
-fig = plt.figure(num='PCA', figsize=(10, 8))
+fig = plt.figure(num='PCA', figsize=(10, 7))
 add_image(fig, gray_img, 1, 512)
-
 ks = [256, 128, 64, 32, 16]
 for i, k in enumerate(ks):
     add_image(fig, pca_compress(k), i+2, k)
