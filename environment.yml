@@ -27,7 +27,6 @@ dependencies:
   - mkl-service=2.3.0=py38hb782905_0
   - numpy=1.18.1=py38ha749109_1
   - olefile=0.46=py_0
-  - openssl=1.1.1=he774522_0
   - pillow=7.0.0=py38hcc1f983_0
   - pip=20.0.2=py_2
   - pyparsing=2.4.7=pyh9f0ad1d_0
